@@ -30,6 +30,7 @@ function is_opening_hours()
   $hours_start = '10:00'; //開始時間
   $hours_end = '19:00'; //終了時間
   //10:00~19:00（土、日、日本の祝日を除く）の間だけ表示
+  //条件式が複雑なので関数にしたほうが可読性もよくなるかも
   if ((!in_array($today_date, $japan_holiday)) && ($week[$w] != "土" && $week[$w] != "日") && (strtotime($today_hours) >= strtotime($hours_start) && strtotime($hours_end) >= strtotime($today_hours))) :
     $flag = true;
   endif;
